@@ -146,6 +146,13 @@ _For detailed steps, see [`/docs/getting-started.md`](docs/getting-started.md)._
 See [Contributing Guidelines](CONTRIBUTING.md) & [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ---
+## ✨ Contributors
+
+#### Thanks to all the wonderful contributors 💖
+
+[![Contributors](https://contrib.rocks/image?repo=Varunshiyam/Fit-Connect)](https://github.com/Varunshiyam/Fit-Connect/graphs/contributors)
+
+---
 
 > **Need help?**  
 > Tag a maintainer or open a new [Issue](../../issues).
