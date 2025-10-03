@@ -1,0 +1,461 @@
+Multiple Payment Types:
+
+Single payment (default)
+Recurring payment subscriptions
+Installment payment plans
+Currency Selection:
+
+Dropdown to select from multiple currencies
+Visual feedback when currency changes
+More Payment Methods:
+
+Additional options for bank transfers
+Credit card payments
+Improved UI Elements:
+
+Tab navigation for different payment types
+Interactive forms with input highlighting
+Loading states for payment processing
+Animated transitions
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Payment Gateway</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7fafc;
+        }
+        
+        .payment-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .payment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .payment-method.active {
+            border: 2px solid #4299e1;
+            background-color: #ebf8ff;
+        }
+        
+        .input-highlight {
+            border-color: #4299e1;
+            box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.25);
+        }
+        
+        .animated-button {
+            transition: all 0.3s ease;
+            transform: scale(1);
+        }
+        
+        .animated-button:hover {
+            transform: scale(1.02);
+        }
+        
+        .animated-button:active {
+            transform: scale(0.98);
+        }
+        
+        .tab-active {
+            border-bottom: 3px solid #4299e1;
+            color: #4299e1;
+            font-weight: 600;
+        }
+        
+        .currency-selector {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl w-full space-y-8 bg-white rounded-xl shadow-xl p-8">
+            <div class="flex justify-between items-start">
+                <div class="text-center md:text-left">
+                    <img src="https://placehold.co/200x80" alt="Modern fintech company logo with digital payment theme" class="mx-auto md:mx-0 h-12 w-auto">
+                    <h2 class="mt-4 text-3xl font-extrabold text-gray-900">
+                        Advanced Payment Gateway
+                    </h2>
+                    <p class="mt-2 text-sm text-gray-600">
+                        Complete your transaction with multiple secure payment options
+                    </p>
+                </div>
+                <div>
+                    <select id="currency" class="currency-selector mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+                        <option>USD - US Dollar</option>
+                        <option>INR - Indian Rupee</option>
+                        <option>EUR - Euro</option>
+                        <option>GBP - British Pound</option>
+                        <option>JPY - Japanese Yen</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="flex border-b border-gray-200 mb-6">
+                <button id="btn-single" class="tab-active py-4 px-6 text-sm font-medium">Single Payment</button>
+                <button id="btn-recurring" class="py-4 px-6 text-sm font-medium text-gray-500 hover:text-gray-700">Recurring Payment</button>
+                <button id="btn-installments" class="py-4 px-6 text-sm font-medium text-gray-500 hover:text-gray-700">Installments</button>
+            </div>
+
+            <div id="single-payment" class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-lg font-medium text-gray-900">Payment Summary</h3>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded-full">Due Now</span>
+                        </div>
+                        <div class="space-y-3 mb-4">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Order Total</span>
+                                <span class="font-medium">$149.99</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Tax and Fees</span>
+                                <span class="font-medium">$10.01</span>
+                            </div>
+                            <div class="border-t border-gray-200 pt-2 mt-2">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-800 font-semibold">Total Amount</span>
+                                    <span class="text-gray-900 font-bold">$160.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="save-info" name="save-info" type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            <label for="save-info" class="ml-2 block text-sm text-gray-900">
+                                Save payment information for future purchases
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-sm text-gray-500">We use 256-bit encryption and PCI DSS compliance to keep your information secure</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <h3 class="text-lg font-medium text-gray-900">Select Payment Method</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <button id="upi-btn" class="payment-method active flex items-center justify-center p-4 border border-gray-300 rounded-lg cursor-pointer">
+                                    <img src="https://placehold.co/40x20" alt="UPI logo" class="h-5 mr-2">
+                                    <span>UPI</span>
+                                </button>
+                                <button id="paypal-btn" class="payment-method flex items-center justify-center p-4 border border-gray-300 rounded-lg cursor-pointer">
+                                    <img src="https://placehold.co/40x20" alt="PayPal logo" class="h-5 mr-2">
+                                    <span>PayPal</span>
+                                </button>
+                                <button id="card-btn" class="payment-method flex items-center justify-center p-4 border border-gray-300 rounded-lg cursor-pointer">
+                                    <img src="https://placehold.co/40x20" alt="Credit card icons" class="h-5 mr-2">
+                                    <span>Credit Card</span>
+                                </button>
+                                <button id="bank-btn" class="payment-method flex items-center justify-center p-4 border border-gray-300 rounded-lg cursor-pointer">
+                                    <img src="https://placehold.co/40x20" alt="Bank transfer icon" class="h-5 mr-2">
+                                    <span>Bank Transfer</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="upi-section" class="p-6 border border-gray-200 rounded-lg">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">UPI Payment</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="vpa" class="block text-sm font-medium text-gray-700">Enter UPI ID (e.g., name@upi)</label>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                                <input type="text" id="vpa" class="input-highlight focus:ring-blue-500 focus:border-blue-500 block w-full pl-3 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="name@upi">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4">
+                            <button class="flex items-center justify-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
+                                <img src="https://placehold.co/30x30" alt="PhonePe logo" class="h-6 mr-2">
+                                <span>PhonePe</span>
+                            </button>
+                            <button class="flex items-center justify-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
+                                <img src="https://placehold.co/30x30" alt="Google Pay logo" class="h-6 mr-2">
+                                <span>Google Pay</span>
+                            </button>
+                            <button class="flex items-center justify-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50">
+                                <img src="https://placehold.co/30x30" alt="Paytm logo" class="h-6 mr-2">
+                                <span>Paytm</span>
+                            </button>
+                        </div>
+                        <button class="animated-button w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            Pay with UPI
+                        </button>
+                    </div>
+                </div>
+
+                <div id="paypal-section" class="p-6 border border-gray-200 rounded-lg hidden">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">PayPal Payment</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="paypal-email" class="block text-sm font-medium text-gray-700">PayPal Email</label>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                                <input type="email" id="paypal-email" class="focus:ring-blue-500 focus:border-blue-500 block w-full pl-3 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="your@email.com">
+                            </div>
+                        </div>
+                        <button class="animated-button w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            Continue with PayPal
+                        </button>
+                    </div>
+                </div>
+
+                <div id="card-section" class="p-6 border border-gray-200 rounded-lg hidden">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">Credit Card Payment</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="card-number" class="block text-sm font-medium text-gray-700">Card Number</label>
+                            <div class="mt-1 relative rounded-md shadow-sm">
+                                <input type="text" id="card-number" class="focus:ring-blue-500 focus:border-blue-500 block w-full pl-3 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="1234 5678 9012 3456">
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-3">
+                                    <img src="https://placehold.co/20x12" alt="Card brand icon" class="h-3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="expiry-date" class="block text-sm font-medium text-gray-700">Expiration Date</label>
+                                <input type="text" id="expiry-date" class="focus:ring-blue-500 focus:border-blue-500 block w-full pl-3 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="MM/YY">
+                            </div>
+                            <div>
+                                <label for="cvv" class="block text-sm font-medium text-gray-700">CVV</label>
+                                <input type="text" id="cvv" class="focus:ring-blue-500 focus:border-blue-500 block w-full pl-3 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="123">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="card-name" class="block text-sm font-medium text-gray-700">Name on Card</label>
+                            <input type="text" id="card-name" class="focus:ring-blue-500 focus:border-blue-500 block w-full pl-3 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="John Smith">
+                        </div>
+                        <button class="animated-button w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            Pay with Card
+                        </button>
+                    </div>
+                </div>
+
+                <div id="bank-section" class="p-6 border border-gray-200 rounded-lg hidden">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">Bank Transfer</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Select Bank</label>
+                            <select class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+                                <option>HDFC Bank</option>
+                                <option>ICICI Bank</option>
+                                <option>State Bank of India</option>
+                                <option>Axis Bank</option>
+                                <option>Bank of Baroda</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="account-number" class="block text-sm font-medium text-gray-700">Account Number</label>
+                            <input type="text" id="account-number" class="focus:ring-blue-500 focus:border-blue-500 block w-full pl-3 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="1234567890">
+                        </div>
+                        <div>
+                            <label for="ifsc-code" class="block text-sm font-medium text-gray-700">IFSC Code</label>
+                            <input type="text" id="ifsc-code" class="focus:ring-blue-500 focus:border-blue-500 block w-full pl-3 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="HDFC0000123">
+                        </div>
+                        <button class="animated-button w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            Initiate Bank Transfer
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="recurring-payment" class="hidden space-y-6">
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">Recurring Payment Setup</h3>
+                    <div class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="recurring-amount" class="block text-sm font-medium text-gray-700">Amount</label>
+                                <input type="text" id="recurring-amount" class="focus:ring-blue-500 focus:border-blue-500 block w-full pl-3 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="$50.00">
+                            </div>
+                            <div>
+                                <label for="frequency" class="block text-sm font-medium text-gray-700">Frequency</label>
+                                <select id="frequency" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+                                    <option>Weekly</option>
+                                    <option>Monthly</option>
+                                    <option>Quarterly</option>
+                                    <option>Yearly</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="start-date" class="block text-sm font-medium text-gray-700">Start Date</label>
+                            <input type="date" id="start-date" class="focus:ring-blue-500 focus:border-blue-500 block w-full pl-3 pr-12 sm:text-sm border-gray-300 rounded-md">
+                        </div>
+                        <div class="flex items-center">
+                            <input id="save-info-recurring" name="save-info-recurring" type="checkbox" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            <label for="save-info-recurring" class="ml-2 block text-sm text-gray-900">
+                                Email me reminders before each payment
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="installments-payment" class="hidden space-y-6">
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">Installment Payment Plan</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="total-amount" class="block text-sm font-medium text-gray-700">Total Amount</label>
+                            <input type="text" id="total-amount" class="focus:ring-blue-500 focus:border-blue-500 block w-full pl-3 pr-12 sm:text-sm border-gray-300 rounded-md" placeholder="$500.00">
+                        </div>
+                        <div>
+                            <label for="installment-count" class="block text-sm font-medium text-gray-700">Number of Installments</label>
+                            <select id="installment-count" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>6</option>
+                                <option>12</option>
+                            </select>
+                        </div>
+                        <div class="pt-4 border-t border-gray-200">
+                            <h4 class="text-md font-medium text-gray-900">Estimated Payment Schedule</h4>
+                            <ul class="mt-2 space-y-2">
+                                <li class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Today</span>
+                                    <span class="text-gray-900 font-medium">$125.00</span>
+                                </li>
+                                <li class="flex justify-between text-sm">
+                                    <span class="text-gray-600">June 15, 2023</span>
+                                    <span class="text-gray-900 font-medium">$125.00</span>
+                                </li>
+                                <li class="flex justify-between text-sm">
+                                    <span class="text-gray-600">July 15, 2023</span>
+                                    <span class="text-gray-900 font-medium">$125.00</span>
+                                </li>
+                                <li class="flex justify-between text-sm">
+                                    <span class="text-gray-600">August 15, 2023</span>
+                                    <span class="text-gray-900 font-medium">$125.00</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Payment method selection
+        const paymentMethods = document.querySelectorAll('.payment-method');
+        paymentMethods.forEach(method => {
+            method.addEventListener('click', () => {
+                document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('active'));
+                method.classList.add('active');
+                
+                // Hide all sections
+                document.getElementById('upi-section').classList.add('hidden');
+                document.getElementById('paypal-section').classList.add('hidden');
+                document.getElementById('card-section').classList.add('hidden');
+                document.getElementById('bank-section').classList.add('hidden');
+                
+                // Show selected section
+                if (method.id === 'upi-btn') {
+                    document.getElementById('upi-section').classList.remove('hidden');
+                } else if (method.id === 'paypal-btn') {
+                    document.getElementById('paypal-section').classList.remove('hidden');
+                } else if (method.id === 'card-btn') {
+                    document.getElementById('card-section').classList.remove('hidden');
+                } else if (method.id === 'bank-btn') {
+                    document.getElementById('bank-section').classList.remove('hidden');
+                }
+            });
+        });
+
+        // Tab navigation
+        document.getElementById('btn-single').addEventListener('click', () => {
+            document.getElementById('btn-single').classList.add('tab-active');
+            document.getElementById('btn-recurring').classList.remove('tab-active');
+            document.getElementById('btn-installments').classList.remove('tab-active');
+            
+            document.getElementById('single-payment').classList.remove('hidden');
+            document.getElementById('recurring-payment').classList.add('hidden');
+            document.getElementById('installments-payment').classList.add('hidden');
+        });
+
+        document.getElementById('btn-recurring').addEventListener('click', () => {
+            document.getElementById('btn-single').classList.remove('tab-active');
+            document.getElementById('btn-recurring').classList.add('tab-active');
+            document.getElementById('btn-installments').classList.remove('tab-active');
+            
+            document.getElementById('single-payment').classList.add('hidden');
+            document.getElementById('recurring-payment').classList.remove('hidden');
+            document.getElementById('installments-payment').classList.add('hidden');
+        });
+
+        document.getElementById('btn-installments').addEventListener('click', () => {
+            document.getElementById('btn-single').classList.remove('tab-active');
+            document.getElementById('btn-recurring').classList.remove('tab-active');
+            document.getElementById('btn-installments').classList.add('tab-active');
+            
+            document.getElementById('single-payment').classList.add('hidden');
+            document.getElementById('recurring-payment').classList.add('hidden');
+            document.getElementById('installments-payment').classList.remove('hidden');
+        });
+
+        // Currency selection effect
+        document.getElementById('currency').addEventListener('change', function() {
+            alert(`Currency changed to ${this.value}`);
+            // Here you would typically update prices based on selected currency
+            // For demonstration, we're just showing an alert
+        });
+
+        // Input field highlighting
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.classList.add('input-highlight');
+            });
+            input.addEventListener('blur', () => {
+                input.classList.remove('input-highlight');
+            });
+        });
+
+        // Simulate payment processing
+        const paymentButtons = document.querySelectorAll('.animated-button');
+        paymentButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                button.disabled = true;
+                button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+                
+                // Simulate API call delay
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-check"></i> Payment Successful!';
+                    setTimeout(() => {
+                        alert('Payment processed successfully! You will receive a confirmation email shortly.');
+                        button.disabled = false;
+                        button.innerHTML = 'Complete Payment';
+                    }, 1000);
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>

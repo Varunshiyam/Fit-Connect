@@ -21,6 +21,24 @@
 </div>
 
 ---
+## 🌟GSSoc 
+![GSSoC Logo](https://github.com/dimpal-yadav/Fit-Connect/blob/main/GSSoC.png)
+🌟 **Exciting News...**
+
+🚀 This project is now an official part of GirlScript Summer of Code – GSSoC'25! 💃🎉💻 We're thrilled to welcome contributors from all over India and beyond to collaborate, build, and grow *Fit-Connect!* Let’s make learning and career development smarter – together! 🌟👨‍💻👩‍💻
+
+👩‍💻 GSSoC is one of India’s **largest 3-month-long open-source programs** that encourages developers of all levels to contribute to real-world projects 🌍 while learning, collaborating, and growing together. 🌱
+
+🌈 With **mentorship, community support**, and **collaborative coding**, it's the perfect platform for developers to:
+
+- ✨ Improve their skills
+- 🤝 Contribute to impactful projects
+- 🏆 Get recognized for their work
+- 📜 Receive certificates and swag!
+
+🎉 **I can’t wait to welcome new contributors** from GSSoC 2025 to this Fit-Connect project family! Let's build, learn, and grow together — one commit at a time. 🔥👨‍💻👩‍💻
+
+---
 
 > 🟦 **Summary:**  
 > All Matters in fitness—expertise, guidance, and support—united on one platform.  
@@ -126,6 +144,13 @@ _For detailed steps, see [`/docs/getting-started.md`](docs/getting-started.md)._
 
 📢 _Thank you for your interest in contributing!_  
 See [Contributing Guidelines](CONTRIBUTING.md) & [Code of Conduct](CODE_OF_CONDUCT.md).
+
+---
+## ✨ Contributors
+
+#### Thanks to all the wonderful contributors 💖
+
+[![Contributors](https://contrib.rocks/image?repo=Varunshiyam/Fit-Connect)](https://github.com/Varunshiyam/Fit-Connect/graphs/contributors)
 
 ---
 
