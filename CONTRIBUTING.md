@@ -35,8 +35,13 @@ Follow the branching model and create a branch from `dev` for your changes:
 
 5. **Commit and Push Your Changes**
 - Pull all your Changes in `Dev` Branch.
-
-
+```bash
+git pull origin dev
+```
+- Push your branch to your fork:
+```bash
+git push origin feature/your-feature-name
+```
 
 7. **Open a Pull Request (PR)**  
 - Go to your fork on GitHub and open a PR targeting the `dev` branch on the main repository.  
@@ -97,7 +102,6 @@ If you find FitConnect helpful or inspiring, consider giving the repo a ⭐ — 
 
 ---
 
-<p align="center"><strong>💪 Let’s redefine fitness, together.</strong></p>
 
 
 <p align="center">  
