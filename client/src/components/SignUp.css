@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #2b2b2b;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #2b2b2b;
+}
+
+.auth-card {
+  background-color: #2b2b2b;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: transparent;
+  border: none;
+  color: #aa7aec;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  z-index: 10;
+  padding: 5px 10px;
+}
+
+.back-button:hover {
+  transform: translateX(-3px);
+}
+
+.auth-header {
+  padding: 60px 40px 20px;
+  text-align: center;
+}
+
+.auth-title {
+  color: #aa7aec;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.auth-content {
+  padding: 0 40px 40px;
+}
+
+.welcome-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.welcome-section h2 {
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  position: relative;
+}
+
+.password-group {
+  position: relative;
+}
+
+.form-input {
+  width: 100%;
+  padding: 15px 20px;
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #333;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.form-input:focus {
+  background-color: #fff;
+  box-shadow: 0 0 0 2px #aa7aec;
+}
+
+.form-input::placeholder {
+  color: #999;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.password-toggle:hover {
+  opacity: 0.7;
+}
+
+.auth-footer {
+  background: linear-gradient(135deg, #7a82f0 0%, #8a7aec 100%);
+  margin: 30px -40px -40px;
+  padding: 40px;
+  border-radius: 30px 30px 0 0;
+}
+
+.terms-text {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  margin-bottom: 15px;
+}
+
+.terms-link {
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.terms-link:hover {
+  opacity: 0.8;
+}
+
+.auth-button {
+  width: 100%;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.auth-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.auth-button:active {
+  transform: translateY(0);
+}
+
+.social-section {
+  text-align: center;
+  margin: 25px 0;
+}
+
+.social-text {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #ffffff;
+}
+
+.social-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.redirect-text {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.redirect-link {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 12px;
+}
+
+.redirect-link:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    max-width: 100%;
+  }
+
+  .auth-header {
+    padding: 50px 30px 20px;
+  }
+
+  .auth-content {
+    padding: 0 30px 30px;
+  }
+
+  .auth-footer {
+    margin: 20px -30px -30px;
+    padding: 30px;
+  }
+
+  .welcome-section h2 {
+    font-size: 28px;
+  }
+}
